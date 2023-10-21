@@ -39,10 +39,11 @@ class OptunaXGBWithCV:
                                 return_train_score = True, 
                                 scoring='average_precision',)
         
+        # Calculate the statistics in both folds
         mean_train_score = np.mean(cv_pred['train_score'])
         mean_test_score = np.mean(cv_pred['test_score'])
         overfit = mean_train_score - mean_test_score
-        # Append the model and its parameters to the list
+        # Append the model and its parameters to the dataframe
         new_row_df = pd.DataFrame(
             {
                 'params': [params],
@@ -52,6 +53,7 @@ class OptunaXGBWithCV:
             } 
         )
         
+        # Append the run into the experiment df
         self.experiments = pd.concat([self.experiments, new_row_df], 
                                      ignore_index = True)
         
@@ -66,11 +68,14 @@ class OptunaXGBWithCV:
         study.optimize(self._Objective, n_trials=self.n_trials, show_progress_bar=True)
         
     def Select_best_models(self, overfit_limit):
-        experiment_df = self.experiments
+        # Method to select the best models based on specified criteria and a limit for overfitting.
+        experiment_df = self.experiments # Get the experiments data.
         experiment_df = experiment_df.reset_index().rename(columns = {'index': 'run_id'})
         
+        # Check if there are any models with overfitting below the limit.
         assert len(experiment_df[experiment_df.overfit < overfit_limit]) > 0 ,f'Sem run com um overfit menor que {overfit_limit}'
         
+        # Filter and sort the experiments to select the top-k models.
         experiment_df = (experiment_df[experiment_df.overfit < overfit_limit].
                          sort_values(by = 'test_score', 
                                      ascending = False).
@@ -79,6 +84,7 @@ class OptunaXGBWithCV:
         return experiment_df
     
     def train_model(self, params: dict):
+        # Train a model given a set of hyperparameters
         model = XGBClassifier(**params).fit(self.X, self.y)
         return model
         
