@@ -1,13 +1,27 @@
-# a3_desafio_tecnico
-|artifacts - Pasta contendo o top 3 modelos e avaliações dos mesmos
-|data
-        |-> raw - Contém a data enviada para o desafio
-        |->processado - Contém as bases de treino e test já com o tratamento do pre-processing
-|training_utils - contém as funções e classes utilizadas no treino e assessment do modelo
-        |-> assessment.py - Assessment notebook
-        |-> optuna_train.py - Train notebook
-        |-> utils.py - funções genéricas
-|eda.ipynb - Jupyter notebook com a exploração inicial
-|training.ipynb - Jupyter notebook com o treino e assessment dos modelos
-|pre_processing.ipynb - Jupyter notebook com o pre-processing, criação de variáveis e split
-|utils.py - python code com funções genéricas
+## Estrutura do Repositório
+
+O repositório está organizado da seguinte forma:
+
+- **artifacts**: Esta pasta contém os três melhores modelos e suas avaliações.
+
+- **data**: Aqui, você encontrará os dados utilizados no desafio.
+
+  - **raw**: Contém os dados originais enviados para o desafio.
+  
+  - **processado**: Inclui as bases de treino e teste após o pré-processamento.
+
+- **training_utils**: Esta pasta contém funções e classes utilizadas no treinamento e avaliação dos modelos.
+
+  - **assessment.py**: Um notebook de avaliação dos modelos.
+  
+  - **optuna_train.py**: Um notebook de treinamento dos modelos com o uso do Optuna.
+  
+  - **utils.py**: Arquivo com funções genéricas úteis.
+
+- **eda.ipynb**: Um notebook Jupyter com a exploração inicial dos dados.
+
+- **training.ipynb**: Um notebook Jupyter que contém o treinamento e a avaliação dos modelos.
+
+- **pre_processing.ipynb**: Outro notebook Jupyter que descreve o pré-processamento, a criação de variáveis e a divisão dos dados.
+
+- **utils.py**: Um arquivo Python com funções genéricas úteis.
