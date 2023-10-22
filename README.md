@@ -18,7 +18,7 @@ O repositório está organizado da seguinte forma:
 
 - **docs**: Pasta contém apresentação e arquivo com gráficos.
   
-  - **utils.py**: Arquivo com funções genéricas úteis.
+- **utils.py**: Arquivo com funções genéricas úteis.
 
 - **eda.ipynb**: Um notebook Jupyter com a exploração inicial dos dados.
 
