@@ -15,6 +15,8 @@ O repositório está organizado da seguinte forma:
   - **assessment.py**: Um notebook de avaliação dos modelos.
   
   - **optuna_train.py**: Um notebook de treinamento dos modelos com o uso do Optuna.
+
+- **docs**: Pasta contém apresentação e arquivo com gráficos.
   
   - **utils.py**: Arquivo com funções genéricas úteis.
 
